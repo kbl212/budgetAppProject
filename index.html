@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en-US" ng-app='budgetApp'>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>.Envelopes Budget App</title>
+    
+    
+    
+    <!-- normalize.css-->
+    <link rel=stylesheet href="https://cdnjs.cloudflare.com/ajax/libs/normalize/3.0.3/normalize.css">
+    
+    
+    <!--Bootstrap-->
+    <link rel="stylesheet" href="bootstrap.min.css">
+    
+    <!--styles.css-->
+    <link rel=stylesheet href="styles.css">        
+</head>
+
+    
+    
+<body ng-controller="mainCtrl">
+    <div class="header">
+        <span class="headTitle">.Envelopes</span>
+    </div>
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+<ul class="nav nav-pills nav-stacked">
+  <li role="presentation" class="active"><a href="#">Make Envelopes</a></li>
+  <li role="presentation"><a href="#">Calculate Bills</a></li>
+  <li role="presentation"><a href="#">Summary</a></li>
+</ul>
+    
+    
+    
+    
+    
+    
+    
+  <div class="main-container">
+      
+
+      <!--<ui-view></ui-view>-->
+
+
+
+
+
+    <form class="form-inline">
+      <div class="form-group">
+        <label for="totalAmt">Total Amount to budget: </label>
+        <input class="totalAmt form-control" id="totalAmt" placeholder="Total to budget..." ng-model="totes"/>
+      </div>
+      </form>      
+      
+      
+      
+      <span class="remainingBal">Remaining balance: {{(totes - sumOfCurrBudget) | currency}}</span>
+      
+      
+<hr>      
+      
+      
+            <form class="form-inline">
+              <div class="form-group">
+                <label for="inputName">Envelope Name:</label>
+                <input type="text" placeholder="Envelope name..." class="form-control" id="inputName" ng-model="env"/>
+              </div>
+                
+              <div class="form-group">
+                <label for="inputAmount">Amount:</label>
+                <input type="text" placeholder="Amount..." class="form-control" id="inputAmount" ng-model="amt"/>
+              </div>
+                
+              <div class="form-group">
+                <label for="inputAccount">Account/Cash:</label>
+                <input type="text" placeholder="(Checking/Savings/Cash)" class="form-control" id="inputAccount" ng-model="acct"/>
+              </div>
+                <button class="Submit btn btn-primary" ng-click="addNewEnvelope(env, amt, acct)">Submit</button>
+            </form>
+        
+      
+      <li class="list-of-stuff" ng-repeat="envelope in envelopes"> <!-- | orderBy: '+name'"-->
+            
+            {{envelope.name}} -- {{envelope.amount | currency}} -- {{envelope.account}}  
+            <button class="removeButton btn btn-primary"  ng-click="removeEnvelope($index)">Remove</button>
+            </li>
+            
+            
+  </div>
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+<!-- AngularJS -->
+<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.6/angular.js"></script>
+
+<!-- Firebase -->
+<script src="https://cdn.firebase.com/js/client/2.3.0/firebase.js"></script>
+
+<!-- AngularFire -->
+<script src="https://cdn.firebase.com/libs/angularfire/1.1.3/angularfire.min.js"></script>
+
+<!--UI-router-->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/angular-ui-router/0.2.15/angular-ui-router.min.js"></script>
+
+<!--Local scripts-->
+<script src="scripts/app.js"></script>
+<script src="scripts/mainCtrl.js"></script>
+<script src="scripts/mainService.js"></script>
+<script src="makeEnvelopesPage/makeEnvelopesCtrl.js"></script>
+<script src="makeEnvelopesPage/makeEnvelopesService.js"></script>
+    
+    
+</body>
+</html>
