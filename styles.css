@@ -72,6 +72,7 @@ form {
 .nav-pills {
     background-color:#2f208b;
     height: 700px;
+    width: 200px;
     border-radius: 10px;
 }
 
@@ -82,4 +83,19 @@ hr {
 
 .remainingBal {
     margin-left: 20px;
+}
+
+.doneButton {
+    position: absolute;
+    right:35px;
+    top:15px;
+    padding: 10px;
+    
+}
+
+.totalsSpan {
+    position: absolute;
+    bottom: 0;
+    width: 500px;
+    margin: 10px;
 }

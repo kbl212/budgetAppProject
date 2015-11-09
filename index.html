@@ -20,7 +20,7 @@
 
     
     
-<body ng-controller="mainCtrl">
+<body>
     <div class="header">
         <span class="headTitle">.Envelopes</span>
     </div>
@@ -49,10 +49,10 @@
     
     
     
-  <div class="main-container">
+  <div class="main-container" ng-controller="mainCtrl">
       
 
-      <!--<ui-view></ui-view>-->
+      <!--<div ui-view></ui-view>-->
 
 
 
@@ -80,7 +80,7 @@
               </div>
                 
               <div class="form-group">
-                <label for="inputAmount">Amount:</label>
+                <label for="inputAmount">Amount $</label>
                 <input type="text" placeholder="Amount..." class="form-control" id="inputAmount" ng-model="amt"/>
               </div>
                 
@@ -98,8 +98,64 @@
             <button class="removeButton btn btn-primary"  ng-click="removeEnvelope($index)">Remove</button>
             </li>
             
-            
+        <button class="doneButton btn btn-primary" ng-click="getCashTotal(); getCheckingTotal(); getSavingsTotal();">Done</button>
+      
+      <span class="totalsSpan">Total Cash: {{getCashTotal() | currency}} -- Total Savings: {{getSavingsTotal() | currency}} -- Total Checking: {{getCheckingTotal() | currency}}</span>
   </div>
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    <div class="totalsDiv">
+        
+        <span>
+        
+        
+        
+        
+        </span>
+    
+    
+    
+    
+    
+    </div>
+    
+<!-- SECOND DIV...MAKE BILLS!!! -->
+  
+    <!--
+    <div class="billsContainer" ng-controller = "makeBillsCtrl">
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    </div>
+    
+    -->
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
     
     
     

@@ -3,6 +3,15 @@ var app = angular.module('budgetApp');
 
 app.service('mainService', function() {
     
+    
+    //shared between several services
+    this.cashTotal = -1;
+    this.savingsTotal = -1;
+    this.checkingTotal = -1;
+    
+    
+    
+    
     this.allEnvelopes = [];
 
     var Envelope = function(name, amount, account) {
@@ -20,7 +29,11 @@ app.service('mainService', function() {
     
 this.addNewEnv = function(nameIn, amt, acct) {
 	
+    
+        
+    
 	var isAccount = false;
+    //checks for valid "Account/Cash" input
         if (acct.toLowerCase() === 'checking' || acct.toLowerCase() === 'savings' || acct.toLowerCase() === 'cash') {
             isAccount = true;
         }        
@@ -29,18 +42,31 @@ this.addNewEnv = function(nameIn, amt, acct) {
             alert("error: choose valid account type");
         }
     
+    
+    
+    
         var isNotDuplicate = true;
-
-
+    //checks for valid "Envelope name" input
 	if (this.envelopeNames.indexOf(nameIn) !== -1) {
             
             isNotDuplicate = false;
             alert("error: envelope already exists!");
             
         }
+    
+    
+    
+    
+        var isNum = true;
+    //checks for valid "amount" input
+    if (amt - amt !== 0) { //checks for Number
+        isNum = false;
+        alert("amount entered is not a valid number");
+    }
         
     
-    if (isNotDuplicate === true && isAccount) {
+    //if all inputs are valid, create new Env
+    if (isNotDuplicate === true && isAccount && isNum) {
         console.log(isNotDuplicate);
 	    this.envelopeNames.push(nameIn);
         this.allEnvelopes.push(new Envelope(nameIn, amt, acct));
