@@ -6,61 +6,29 @@ var app = angular.module('budgetApp');
 app.controller('mainCtrl', function($scope, mainService) {
     
     
-    var envelopeNames = [];
-    $scope.envelopes = [];
-    $scope.totalAmount = 0;
-    $scope.keepInChecking = 0;
-    $scope.keepInSavings = 0;
-    $scope.toCashOut = 0;
-    $scope.currTotalBal = 0;
-    $scope.sumOfCurrBudget = 0;
-    
-    
-    
-//only if need to CAPITALIZE FIRST LETTER of str
-function capitalFirst(str) {
-    var finalStr = "";
-    var finalArr = str.split('');
-    for (var i = 0; i < finalArr.length; i++) {
-        if (i === 0) {
-            
-            finalStr = finalArr[0].toUpperCase();
-        }
-        else {
-            finalStr += finalArr(i);
-            
-        }
-        
-        
-    }
- return finalStr;
-}
-    
-    
+    //$scope.envelopes = [];
+    //$scope.sumOfCurrBudget = 0; 
     
 //gets cash total from MakeEnvelopes page, to be used on getBills page.    
 $scope.getCashTotal = function() {
     
     var currTotal = 0;
     
-    
+    if ($scope.envelopes === undefined) {
+        $scope.envelopes = [];
+        
+    }
         for (var i = 0; i < $scope.envelopes.length; i++) {
             
             if ($scope.envelopes[i].account === "cash" || $scope.envelopes[i].account === "Cash") {
             
             currTotal += Number($scope.envelopes[i].amount);
-                
-        }
-            
-            
-            
+            }
+        
         }
     mainService.cashTotal = currTotal;
-    console.log("Cash Total = " + mainService.cashTotal);
     return mainService.cashTotal;
 }
-
-
 
 
 
@@ -79,7 +47,6 @@ $scope.getSavingsTotal = function() {
             
         }
     mainService.savingsTotal = currTotal;
-    console.log("Savings Total = " + mainService.savingsTotal);
     return mainService.savingsTotal;
 }
 
@@ -106,18 +73,8 @@ $scope.getCheckingTotal = function() {
             
         }
     mainService.checkingTotal = currTotal;
-    console.log("Checking Total = " + mainService.checkingTotal);
     return mainService.checkingTotal;
 }
-
-
-
-
-
-
-
-
-
 
 
 
@@ -140,14 +97,10 @@ $scope.getCheckingTotal = function() {
         
     }
     
-    
-    
-    
 //removes an envelope
     $scope.removeEnvelope = function(index) {
          mainService.allEnvelopes.splice(index, 1);
          mainService.envelopeNames.splice(index, 1);
-         //console.log(mainService.allEnvelopes);
          
          $scope.envelopes = mainService.allEnvelopes;
          $scope.sumOfCurrBudget = mainService.sumCurrBudget($scope.envelopes);
@@ -157,4 +110,22 @@ $scope.getCheckingTotal = function() {
 });
 
 
-//right heeeeeere;
+
+//only if need to CAPITALIZE FIRST LETTER of str
+/*function capitalFirst(str) {
+    var finalStr = "";
+    var finalArr = str.split('');
+    for (var i = 0; i < finalArr.length; i++) {
+        if (i === 0) {
+            
+            finalStr = finalArr[0].toUpperCase();
+        }
+        else {
+            finalStr += finalArr(i);
+            
+        }
+        
+        
+    }
+ return finalStr;
+}*/

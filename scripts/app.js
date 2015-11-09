@@ -10,15 +10,22 @@ app.config(function($stateProvider, $urlRouterProvider) {
     $stateProvider
         .state('home', {
         
-        url: '/',
+        url: '/make-envelopes',
         templateUrl: 'makeEnvelopesPage/makeEnvelopesTmpl.html',
-        controller: 'makeEnvelopesCtrl'
+        controller: 'mainCtrl'
         
         })
     
     
+        .state('calcBills', {
+            
+            url: '/calculate-bills',
+            templateUrl: 'makeBillsPage/makeBillsTmpl.html',
+            controller: 'makeBillsCtrl'
+        })
+    
     $urlRouterProvider
-        .otherwise('/');
+        .otherwise('/make-Envelopes');
 
     
     

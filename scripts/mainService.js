@@ -87,7 +87,29 @@ this.sumCurrBudget = function(arr) {
     return totalSum;
 }
     
+
+this.getCashBETA = function() {
     
+    var currTotal = 0;
+    
+    if (this.allEnvelopes === undefined) {
+        this.allEnvelopes = [];
+        
+    }
+        for (var i = 0; i < this.allEnvelopes.length; i++) {
+            
+            if (this.allEnvelopes[i].account === "cash" || this.allEnvelopes[i].account === "Cash") {
+            
+            currTotal += Number(this.allEnvelopes[i].amount);
+                
+        }
+            
+            
+            
+        }
+    var cashTotal = currTotal;
+    return cashTotal;
+}
     
     
     

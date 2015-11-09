@@ -1,0 +1,69 @@
+<div class="envelopes-container" ng-controller="mainCtrl">
+<form class="form-inline">
+      <div class="form-group">
+        <label for="totalAmt">Total Amount to budget: </label>
+        <input class="totalAmt form-control" id="totalAmt" placeholder="Total to budget..." ng-model="totes"/>
+      </div>
+      </form>      
+      
+      
+      
+      <span class="remainingBal">Remaining balance: {{(totes - sumOfCurrBudget) | currency}}</span>
+      
+      
+<hr>      
+      
+      
+            <form class="form-inline">
+              <div class="form-group">
+                <label for="inputName">Envelope Name:</label>
+                <input type="text" placeholder="Envelope name..." class="form-control" id="inputName" ng-model="env"/>
+              </div>
+                
+              <div class="form-group">
+                <label for="inputAmount">Amount $</label>
+                <input type="text" placeholder="Amount..." class="form-control" id="inputAmount" ng-model="amt"/>
+              </div>
+                
+              <div class="form-group">
+                <label for="inputAccount">Account/Cash:</label>
+                <input type="text" placeholder="(Checking/Savings/Cash)" class="form-control" id="inputAccount" ng-model="acct"/>
+              </div>
+                <button class="Submit btn btn-primary" ng-click="addNewEnvelope(env, amt, acct)">Submit</button>
+            </form>
+        
+      
+      <li class="list-of-stuff" ng-repeat="envelope in envelopes"> <!-- | orderBy: '+name'"-->
+            
+            {{envelope.name}} -- {{envelope.amount | currency}} -- {{envelope.account}}  
+            <button class="removeButton btn btn-primary"  ng-click="removeEnvelope($index)">Remove</button>
+            </li>
+            
+        <button class="doneButton btn btn-primary" ng-click="getCashTotal(); getCheckingTotal(); getSavingsTotal();">Done</button>
+     <div class="everyTotal"> 
+      <span class="totalsSpan">Total Cash: {{getCashTotal() | currency}} -- Total Savings: {{getSavingsTotal() | currency}} -- Total Checking: {{getCheckingTotal() | currency}}</span>
+    </div>
+    
+    
+    
+    
+    
+    
+    
+    
+    <div class="totalsDiv">
+        
+        <span>
+        
+        
+        
+        
+        </span>
+    
+    
+    
+    
+    
+    </div>
+
+</div>

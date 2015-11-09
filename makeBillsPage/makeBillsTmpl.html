@@ -1,0 +1,70 @@
+<div class= "bills-wrapper" ng-controller="makeBillsCtrl">
+  <div class="totalCashSpan">
+   <span class="cashTotes">This is total cash:  {{cashTotal | currency}}  </span>
+    
+  </div>
+
+    <li ng-repeat="cashEnv in allCashEnvelopes">
+    
+        {{cashEnv.name}} -- {{cashEnv.amount}}
+        
+        <select>
+            <option ng-repeat="opt in billOptions">
+                {{opt}}
+        
+        
+        </select>
+        
+    
+    
+    </li>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</div>
