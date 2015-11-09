@@ -1,23 +1,24 @@
 <div class= "bills-wrapper" ng-controller="makeBillsCtrl">
   <div class="totalCashSpan">
-   <span class="cashTotes">This is total cash:  {{cashTotal | currency}}  </span>
+   <span class="cashTotes">Total cash to budget:  {{cashTotal | currency}}  </span>
     
   </div>
 
-    <li ng-repeat="cashEnv in allCashEnvelopes">
+  <!--  <li ng-repeat="cashEnv in allCashEnvelopes">
     
         {{cashEnv.name}} -- {{cashEnv.amount}}
+            <li ng-repeat="billOpt in billOptions">
+                {{billOpt}}'s
+                <select>
+                    <option ng-repeat="num in numBills">
+                        {{num}}
         
-        <select>
-            <option ng-repeat="opt in billOptions">
-                {{opt}}
         
-        
-        </select>
-        
+                </select>
     
-    
+            </li>
     </li>
+-->
 
 
 
@@ -26,8 +27,39 @@
 
 
 
+<div class="bs-example">
+    <div class="panel panel-default">
+		<!-- Default panel contents -->
+		<div class="panel-heading">Bill Selector</div>
 
+		<!-- Table -->
+		<table class="table">
+			<thead>
+				<tr>
+					<th>Envelope</th>
+					<th>100's</th>
+					<th>50's</th>
+					<th>20's</th>
+                    <th>10's</th>
+                    <th>5's</th>
+                    <th>1's</th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr ng-repeat="cashEnv in allCashEnvelopes">
+					<td>{{cashEnv.name}}</td>
+					<td><input class="billInput form-control"/></td>
+					<td><input class="billInput form-control"/></td>
+					<td><input class="billInput form-control"/></td>
+                    <td><input class="billInput form-control"/></td>
+                    <td><input class="billInput form-control"/></td>
+                    <td><input class="billInput form-control"/></td>
 
+				</tr>
+			</tbody> 
+		</table>
+	</div>
+</div>
 
 
 

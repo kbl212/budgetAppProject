@@ -105,6 +105,15 @@ hr {
 
 .totalCashSpan {
     text-align: center;
+    font-weight: bold;
+    border-bottom: 1px solid black;
+    padding-bottom: 10px;
     
     
+}
+
+.billInput {
+    width: 40px;
+    margin: 0;
+    height: 25px;
 }
