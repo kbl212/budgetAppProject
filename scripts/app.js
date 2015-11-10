@@ -27,11 +27,4 @@ app.config(function($stateProvider, $urlRouterProvider) {
     $urlRouterProvider
         .otherwise('/make-envelopes');
 
-    
-    
-    
-    
-    
-    
-    
 });

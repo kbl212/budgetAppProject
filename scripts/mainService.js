@@ -67,7 +67,7 @@ this.addNewEnv = function(nameIn, amt, acct) {
     
     //if all inputs are valid, create new Env
     if (isNotDuplicate === true && isAccount && isNum) {
-        console.log(isNotDuplicate);
+       // console.log(isNotDuplicate);
 	    this.envelopeNames.push(nameIn);
         this.allEnvelopes.push(new Envelope(nameIn, amt, acct));
         
@@ -83,7 +83,7 @@ this.sumCurrBudget = function(arr) {
     for (var i = 0; i < arr.length; i++) {
         totalSum += Number(arr[i].amount);
     }
-    console.log("Total budget so far: " + totalSum);
+    //console.log("Total budget so far: " + totalSum);
     return totalSum;
 }
     

@@ -18,6 +18,38 @@ app.service('makeBillsService', function() {
         return cashArray;
     }
     
+    //TESTTTTTTTTTTTTTTTTTT
+    this.calcAmountLeft = function(hundreds, fifties, twenties, tens, fives, ones) {
+        
+        
+        if (hundreds === undefined) {
+            hundreds = 0;
+        }
+        
+         if (fifties === undefined) {
+            fifties = 0;
+        }
+        
+         if (twenties === undefined) {
+            twenties = 0;
+        }
+        
+         if (tens === undefined) {
+            tens = 0;
+        }
+        
+         if (fives === undefined) {
+            fives = 0;
+        }
+        
+         if (ones === undefined) {
+            ones = 0;
+        }
+        
+        var totalUsed = hundreds * 100 + fifties * 50 + twenties * 20 + tens * 10 + fives * 5 + ones;
+        
+        return totalUsed;
+    }
     
     
 });
