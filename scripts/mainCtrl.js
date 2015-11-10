@@ -6,6 +6,16 @@ var app = angular.module('budgetApp');
 app.controller('mainCtrl', function($scope, mainService) {
     
     
+
+$scope.letsSee = function() {
+    
+    console.log($location.path());
+}
+    
+$scope.isActive = function (viewLocation) {
+    return viewLocation === $location.path();
+};
+    
     //$scope.envelopes = [];
     //$scope.sumOfCurrBudget = 0; 
     
