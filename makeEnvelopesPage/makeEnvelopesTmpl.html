@@ -39,7 +39,6 @@
             <button class="removeButton btn btn-primary"  ng-click="removeEnvelope($index)">Remove</button>
             </li>
             
-        <button class="doneButton btn btn-primary" ng-click="getCashTotal(); getCheckingTotal(); getSavingsTotal();">Done</button>
      <div class="everyTotal"> 
       <span class="totalsSpan">Total Cash: {{getCashTotal() | currency}} -- Total Savings: {{getSavingsTotal() | currency}} -- Total Checking: {{getCheckingTotal() | currency}}</span>
     </div>

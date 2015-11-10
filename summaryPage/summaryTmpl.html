@@ -1,0 +1,30 @@
+<div class="main-contain-summary" ng-controller="summaryCtrl">
+
+
+    
+    <button class="btn btn-success" ng-click="getAll(); showme=true">Get Summary</button>
+
+    
+    <p class="summaryPar" ng-hide="showme">Your summary will appear here after clicking the button above!</p>
+    
+    <p class="summaryPar" ng-show="showme"> At the bank, take out: {{totalCash | currency}} <br/>
+            ---{{totalBills[0]}}  hundreds <br/>
+            ---{{totalBills[1]}}  fifties <br/>
+            ---{{totalBills[2]}}  twenties <br/>
+            ---{{totalBills[3]}}  tens <br/>
+            ---{{totalBills[4]}}  fives <br/>
+            ---{{totalBills[5]}}  ones <br/>
+    </p>
+    
+    <p class="summaryPar2" ng-show="showme">
+    
+            Put {{totalSavings | currency}} into Savings. <br/> <br/>
+            Put {{totalChecking | currency}} into Checking.
+    
+    
+    
+    
+    </p>
+    
+    
+</div>

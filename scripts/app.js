@@ -24,6 +24,17 @@ app.config(function($stateProvider, $urlRouterProvider) {
             controller: 'makeBillsCtrl'
         })
     
+        .state('summary', {
+        
+            url:'/summary',
+            templateUrl: 'summaryPage/summaryTmpl.html',
+            controller: 'summaryCtrl'
+        
+        })
+    
+    
+    
+    
     $urlRouterProvider
         .otherwise('/make-envelopes');
 

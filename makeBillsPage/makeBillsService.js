@@ -3,6 +3,7 @@ var app = angular.module('budgetApp');
 
 app.service('makeBillsService', function() {
     
+    this.totalZArr = [];
     
     this.allBillOptions = [1, 5, 10, 20, 50, 100];
     
@@ -18,7 +19,6 @@ app.service('makeBillsService', function() {
         return cashArray;
     }
     
-    //TESTTTTTTTTTTTTTTTTTT
     this.calcAmountLeft = function(hundreds, fifties, twenties, tens, fives, ones) {
         
         
@@ -50,6 +50,18 @@ app.service('makeBillsService', function() {
         
         return totalUsed;
     }
+    
+    
+        this.grabTotals = function(arr) {
+            this.totalZArr = arr;
+            console.log("did it work?: " + this.totalZArr);
+            return this.totalZArr;
+    }
+        this.sendTotals = function() {
+            
+            return this.totalZArr;
+        }
+    
     
     
 });

@@ -117,3 +117,32 @@ hr {
     margin: 0;
     height: 25px;
 }
+
+.summaryPar {
+    width: 400px;
+    display:block;
+    margin: 0 auto;
+    background-color: #fff;
+    font-size: 20px;
+    font-weight: bold;
+}
+
+.summaryPar2 {
+    width: 400px;
+    display:block;
+    margin: 20px auto 0 auto;
+    background-color: #fff;
+    font-size 20px;
+    font-weight: bold;
+    
+}
+
+.btn-success {
+    display: block;
+    width: 250px;
+    margin: 0 auto 10px auto;
+}
+
+.main-contain-summary {
+    padding-top: 50px;
+}

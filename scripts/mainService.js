@@ -111,8 +111,54 @@ this.getCashBETA = function() {
     return cashTotal;
 }
     
+
+
+this.getSavingsBETA = function() {
     
+    var currTotal = 0;
     
+    if (this.allEnvelopes === undefined) {
+        this.allEnvelopes = [];
+        
+    }
+        for (var i = 0; i < this.allEnvelopes.length; i++) {
+            
+            if (this.allEnvelopes[i].account === "savings" || this.allEnvelopes[i].account === "Savings") {
+            
+            currTotal += Number(this.allEnvelopes[i].amount);
+                
+        }
+            
+            
+            
+        }
+    var savingsTotal = currTotal;
+    return savingsTotal;
+}
+    
+
+this.getCheckingBETA = function() {
+    
+    var currTotal = 0;
+    
+    if (this.allEnvelopes === undefined) {
+        this.allEnvelopes = [];
+        
+    }
+        for (var i = 0; i < this.allEnvelopes.length; i++) {
+            
+            if (this.allEnvelopes[i].account === "checking" || this.allEnvelopes[i].account === "Checking") {
+            
+            currTotal += Number(this.allEnvelopes[i].amount);
+                
+        }
+            
+            
+            
+        }
+    var checkingTotal = currTotal;
+    return checkingTotal;
+}
     
     
     

@@ -28,7 +28,7 @@
 
 
 
-<div class="bs-example">
+<div class="env-table">
     <div class="panel panel-default">
 		<!-- Default panel contents -->
 		<div class="panel-heading">Bill Selector</div>
@@ -51,16 +51,23 @@
 			<tbody>
 				<tr ng-repeat="cashEnv in allCashEnvelopes">
 					<td>{{cashEnv.name}}</td>
-					<td><input class="billInput form-control"  ng-model="hundreds" ng-init="hundreds=0"  /></td>
-					<td><input class="billInput form-control"  ng-model="fifties" ng-init="fifties=0" /></td>
-					<td><input class="billInput form-control"  ng-model="twenties" ng-init="twenties=0" /></td>
-                    <td><input class="billInput form-control"  ng-model="tens" ng-init="tens=0" /></td>
-                    <td><input class="billInput form-control"  ng-model="fives" ng-init="fives=0" /></td>
-                    <td><input class="billInput form-control"  ng-model="ones" ng-init="ones=0" /></td>
-                    <td ng-model="amtLeft">{{(cashEnv.amount - (hundreds*100) - (fifties*50) - (twenties*20) - (tens*10) - (fives*5) - ones) | currency}} </td>
-                    <td> <span class="glyphicon glyphicon-ok" ng-show="{{(cashEnv.amount - (hundreds*100) - (fifties*50) - (twenties*20) - (tens*10) - (fives*5) - ones) == 0}}" >{{(cashEnv.amount - (hundreds*100) - (fifties*50) - (twenties*20) - (tens*10) - (fives*5) - ones) == 0}}</span></td> 
+					<td><input class="billInput form-control"  ng-model="cashEnv.hundreds" ng-init="cashEnv.hundreds=0"  /></td>
+					<td><input class="billInput form-control"  ng-model="cashEnv.fifties" ng-init="cashEnv.fifties=0" /></td>
+					<td><input class="billInput form-control"  ng-model="cashEnv.twenties" ng-init="cashEnv.twenties=0" /></td>
+                    <td><input class="billInput form-control"  ng-model="cashEnv.tens" ng-init="cashEnv.tens=0" /></td>
+                    <td><input class="billInput form-control"  ng-model="cashEnv.fives" ng-init="cashEnv.fives=0" /></td>
+                    <td><input class="billInput form-control"  ng-model="cashEnv.ones" ng-init="cashEnv.ones=0" /></td>
+                    <td ng-model="cashEnv.amtLeft" >{{(cashEnv.amount - (cashEnv.hundreds*100) - (cashEnv.fifties*50) - (cashEnv.twenties*20) - (cashEnv.tens*10) - (cashEnv.fives*5) - cashEnv.ones) | currency}} </td>
+                   
                     
-                         <!-- <span class="remainingBal">Remaining balance: {{(totes - sumOfCurrBudget) | currency}}</span> -->
+                    
+                    
+                    
+ 
+
+                    <td class="success"> <span>{{cashEnv.amtLeft}}   Done</span></td>
+                    
+                        
 
 
 				</tr>
@@ -68,6 +75,11 @@
 		</table>
 	</div>
 </div>
+    
+    
+    
+    <!-- ***add an ng-disabled*** -->
+    <button class="btn btn-primary" ng-click="grabTotals()">Done</button>
 
 
 
