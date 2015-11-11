@@ -54,7 +54,6 @@ app.service('makeBillsService', function() {
     
         this.grabTotals = function(arr) {
             this.totalZArr = arr;
-            console.log("did it work?: " + this.totalZArr);
             return this.totalZArr;
     }
         this.sendTotals = function() {

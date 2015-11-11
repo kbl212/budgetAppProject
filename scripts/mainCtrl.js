@@ -7,21 +7,10 @@ app.controller('mainCtrl', function($scope, mainService) {
     
     
     $scope.format = 'M/d/yy';
-    
 
-$scope.letsSee = function() {
+
     
-    console.log($location.path());
-}
-    
-$scope.isActive = function (viewLocation) {
-    return viewLocation === $location.path();
-};
-    
-    //$scope.envelopes = [];
-    //$scope.sumOfCurrBudget = 0; 
-    
-//gets cash total from MakeEnvelopes page, to be used on getBills page.    
+//Returns total of all Cash envelopes    
 $scope.getCashTotal = function() {
     
     var currTotal = 0;
@@ -44,45 +33,28 @@ $scope.getCashTotal = function() {
 
 
 
-//gets SAVINGS total
+//Returns total of all Savings 'envelopes'
 $scope.getSavingsTotal = function() {
     var currTotal = 0;
-    
-    
-        for (var i = 0; i < $scope.envelopes.length; i++) {
+      for (var i = 0; i < $scope.envelopes.length; i++) {
             
-            if ($scope.envelopes[i].account === "savings" || $scope.envelopes[i].account === "Savings") {
-            
-            currTotal += Number($scope.envelopes[i].amount);
-                
-        }
-            
+            if ($scope.envelopes[i].account === "savings" || $scope.envelopes[i].account === "Savings") {         
+                currTotal += Number($scope.envelopes[i].amount);                
+            }  
         }
     mainService.savingsTotal = currTotal;
     return mainService.savingsTotal;
 }
 
 
-
-
-
-
-
-//get CHECKING total
+//Returns total of all Checking 'envelopes'.
 $scope.getCheckingTotal = function() {
     var currTotal = 0;
-    
-    
         for (var i = 0; i < $scope.envelopes.length; i++) {
             
-            if ($scope.envelopes[i].account === "checking" || $scope.envelopes[i].account === "Checking") {
-            
-            currTotal += Number($scope.envelopes[i].amount);
-                
-        }
-            
-            
-            
+            if ($scope.envelopes[i].account === "checking" || $scope.envelopes[i].account === "Checking") {   
+                currTotal += Number($scope.envelopes[i].amount);
+            }    
         }
     mainService.checkingTotal = currTotal;
     return mainService.checkingTotal;
@@ -95,7 +67,8 @@ $scope.getCheckingTotal = function() {
        
         nameIn = $scope.capitalFirst(nameIn);
         acct = $scope.capitalFirst(acct);
-        //checks to see if remaining balance will allow this new envelope amount to be added
+        
+//checks to see if remaining balance will allow this new envelope amount to be added
         if (Number($scope.totes) - Number($scope.sumOfCurrBudget) - Number(amt) < 0 || $scope.totes === undefined) {
             alert('error: Not enough money left!');
             
@@ -110,7 +83,7 @@ $scope.getCheckingTotal = function() {
         
     }
     
-//removes an envelope
+//Removes an envelope.
     $scope.removeEnvelope = function(index) {
          mainService.allEnvelopes.splice(index, 1);
          mainService.envelopeNames.splice(index, 1);
@@ -124,7 +97,7 @@ $scope.getCheckingTotal = function() {
 
 
 
-//only if need to CAPITALIZE FIRST LETTER of str
+//Capitalizes first letter of passed-in string.
 $scope.capitalFirst = function(str) {
     var finalStr = "";
     var finalArr = str.split('');

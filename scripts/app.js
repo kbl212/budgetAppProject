@@ -1,4 +1,4 @@
-var app = angular.module('budgetApp', ['firebase', 'ui.router']);
+var app = angular.module('budgetApp', ['ui.router']);
 
 
 

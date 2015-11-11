@@ -5,29 +5,6 @@
 
   </div>
 
-  <!--  <li ng-repeat="cashEnv in allCashEnvelopes">
-    
-        {{cashEnv.name}} -- {{cashEnv.amount}}
-            <li ng-repeat="billOpt in billOptions">
-                {{billOpt}}'s
-                <select>
-                    <option ng-repeat="num in numBills">
-                        {{num}}
-        
-        
-                </select>
-    
-            </li>
-    </li>
--->
-
-
-
-
-
-
-
-
 <div class="env-table">
     <div class="panel panel-default">
 		<!-- Default panel contents -->
@@ -58,18 +35,8 @@
                     <td><input class="billInput form-control"  ng-model="cashEnv.fives" ng-init="cashEnv.fives=0" /></td>
                     <td><input class="billInput form-control"  ng-model="cashEnv.ones" ng-init="cashEnv.ones=0" /></td>
                     <td ng-model="cashEnv.amtLeft" >{{(cashEnv.amount - (cashEnv.hundreds*100) - (cashEnv.fifties*50) - (cashEnv.twenties*20) - (cashEnv.tens*10) - (cashEnv.fives*5) - cashEnv.ones) | currency}} </td>
-                   
-                    
-                    
-                    
-                    
- 
 
                     <td class="success"> <span>{{cashEnv.amtLeft}}   Done</span></td>
-                    
-                        
-
-
 				</tr>
 			</tbody> 
 		</table>

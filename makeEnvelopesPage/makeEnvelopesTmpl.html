@@ -1,22 +1,15 @@
 <div class="envelopes-container" ng-controller="mainCtrl">
-    
-    
-            <span class='dateSpan'>Current date you are budgeting on: <span time-dir="format"></span></span>
 
-    
-    
-    
-    
-    
+    <span class='dateSpan'>Current date you are budgeting on: <span time-dir="format"></span></span>
+
+
 <form class="form-inline">
       <div class="form-group">
         <label for="totalAmt">Enter an amount to budget: </label>
         <input class="totalAmt form-control" id="totalAmt" placeholder="Total to budget..." ng-model="totes"/>
       </div>
       </form>      
-      
-      
-      
+ 
       <span remain-bal class="remainingBal" ></span>
       
       
@@ -51,15 +44,7 @@
      <div class="everyTotal"> 
       <span class="totalsSpan">Total Cash: {{getCashTotal() | currency}} -- Total Savings: {{getSavingsTotal() | currency}} -- Total Checking: {{getCheckingTotal() | currency}}</span>
     </div>
-    
-    
-    
-    
-    
-    
-    
-    
-    
+
     
 <div class="init-env-table" ng-show="showMePlis">
     <div class="panel panel-default">
@@ -90,21 +75,6 @@
 </div>
     
 <div class="alert alert-info firstAlertBlue" ng-show="showMePlis">Click on "Calculate Bills" on the left menu when you've finished entering your envelopes.</div>
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
     
 
 </div>
