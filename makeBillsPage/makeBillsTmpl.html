@@ -79,8 +79,9 @@
     
     
     <!-- ***add an ng-disabled*** -->
-    <button class="btn btn-primary" ng-click="grabTotals()">Done</button>
+    <button class="btn btn-primary saveBtn" ng-click="grabTotals(); showme=true">Save</button>
 
+    <div class="alert alert-success alertMsg" ng-show="showme"><strong>Nice!</strong> Your bills have been saved. Go ahead and click "Summary" on the left menu for your final results.</div>
 
 
 

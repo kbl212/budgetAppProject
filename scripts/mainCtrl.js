@@ -6,6 +6,8 @@ var app = angular.module('budgetApp');
 app.controller('mainCtrl', function($scope, mainService) {
     
     
+    $scope.format = 'M/d/yy h:mm:ss a';
+    
 
 $scope.letsSee = function() {
     
@@ -91,7 +93,8 @@ $scope.getCheckingTotal = function() {
 //adds a new envelope to $scope.envelopes with a name, amount, and account type
     $scope.addNewEnvelope = function(nameIn, amt, acct) {
        
-        
+        nameIn = $scope.capitalFirst(nameIn);
+        acct = $scope.capitalFirst(acct);
         //checks to see if remaining balance will allow this new envelope amount to be added
         if (Number($scope.totes) - Number($scope.sumOfCurrBudget) - Number(amt) < 0 || $scope.totes === undefined) {
             alert('error: Not enough money left!');
@@ -117,12 +120,12 @@ $scope.getCheckingTotal = function() {
 
     }
     
-});
+
 
 
 
 //only if need to CAPITALIZE FIRST LETTER of str
-/*function capitalFirst(str) {
+$scope.capitalFirst = function(str) {
     var finalStr = "";
     var finalArr = str.split('');
     for (var i = 0; i < finalArr.length; i++) {
@@ -131,11 +134,14 @@ $scope.getCheckingTotal = function() {
             finalStr = finalArr[0].toUpperCase();
         }
         else {
-            finalStr += finalArr(i);
+            finalStr += finalArr[i];
             
         }
         
         
     }
  return finalStr;
-}*/
+}
+
+
+});

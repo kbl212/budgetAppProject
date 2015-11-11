@@ -1,14 +1,23 @@
 <div class="envelopes-container" ng-controller="mainCtrl">
+    
+    
+         <!--   <span>Current time is: <time-dir="format"></span></span> -->
+
+    
+    
+    
+    
+    
 <form class="form-inline">
       <div class="form-group">
-        <label for="totalAmt">Total Amount to budget: </label>
+        <label for="totalAmt">Enter an amount to budget: </label>
         <input class="totalAmt form-control" id="totalAmt" placeholder="Total to budget..." ng-model="totes"/>
       </div>
       </form>      
       
       
       
-      <span class="remainingBal">Remaining balance: {{(totes - sumOfCurrBudget) | currency}}</span>
+      <span remain-bal class="remainingBal" ></span>
       
       
 <hr>      
@@ -29,18 +38,73 @@
                 <label for="inputAccount">Account/Cash:</label>
                 <input type="text" placeholder="(Checking/Savings/Cash)" class="form-control" id="inputAccount" ng-model="acct"/>
               </div>
-                <button class="Submit btn btn-primary" ng-click="addNewEnvelope(env, amt, acct)">Submit</button>
+                <button class="Submit btn btn-primary" ng-click="addNewEnvelope(env, amt, acct); showMePlis=true">Submit</button>
             </form>
         
-      
-      <li class="list-of-stuff" ng-repeat="envelope in envelopes"> <!-- | orderBy: '+name'"-->
+      <!--testing the table below!
+      <li class="list-of-stuff" ng-repeat="envelope in envelopes">
             
             {{envelope.name}} -- {{envelope.amount | currency}} -- {{envelope.account}}  
             <button class="removeButton btn btn-primary"  ng-click="removeEnvelope($index)">Remove</button>
             </li>
-            
+            -->
      <div class="everyTotal"> 
       <span class="totalsSpan">Total Cash: {{getCashTotal() | currency}} -- Total Savings: {{getSavingsTotal() | currency}} -- Total Checking: {{getCheckingTotal() | currency}}</span>
     </div>
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+<div class="init-env-table" ng-show="showMePlis">
+    <div class="panel panel-default">
+		<!-- Default panel contents -->
+		<div class="panel-heading">New Envelopes</div>
+
+		<!-- Table -->
+		<table class="table">
+			<thead>
+				<tr>
+					<th>Envelope</th>
+					<th>Amount</th>
+                    <th>Account/Cash</th>
+                    <th>     </th>
+
+				</tr>
+			</thead>
+			<tbody>
+				<tr ng-repeat="envelope in envelopes">
+					<td>{{envelope.name}}</td>
+					<td>{{envelope.amount | currency}}</td>
+                    <td>{{envelope.account}}</td>
+					<td><button class="removeButton btn btn-danger"  ng-click="removeEnvelope($index)">Remove</button></td>
+				</tr>
+			</tbody> 
+		</table>
+	</div>
+</div>
+    
+<div class="alert alert-info firstAlertBlue" ng-show="showMePlis">Click on "Calculate Bills" on the left menu when you've finished entering your envelopes.</div>
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
 
 </div>
