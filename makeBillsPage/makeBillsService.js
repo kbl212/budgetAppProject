@@ -55,12 +55,9 @@ app.service('makeBillsService', function() {
         this.grabTotals = function(arr) {
             this.totalZArr = arr;
             return this.totalZArr;
-    }
+        } 
         this.sendTotals = function() {
             
             return this.totalZArr;
         }
-    
-    
-    
 });

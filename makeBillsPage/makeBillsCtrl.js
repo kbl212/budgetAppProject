@@ -39,8 +39,5 @@ app.controller('makeBillsCtrl', function($scope, mainService, makeBillsService) 
         totalzArray.push(hundredBills,fiftyBills,twentyBills,tenBills,fiveBills,oneBills);
         makeBillsService.grabTotals(totalzArray);
     }
-    
-    
     $scope.totalBillsArr = $scope.grabTotals();
-    
 });

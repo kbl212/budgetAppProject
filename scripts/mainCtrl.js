@@ -63,14 +63,27 @@ $scope.getCheckingTotal = function() {
 
 
 //adds a new envelope to $scope.envelopes with a name, amount, and account type
-    $scope.addNewEnvelope = function(nameIn, amt, acct) {
+    $scope.addNewEnvelope = function(nameIn, amt, acct, totalBudget) {
        
+        if (totalBudget - totalBudget !== 0) {
+            alert("Error: Please put in a valid amount to budget.");
+        }
+        
+        else if (nameIn === undefined || amt === undefined || acct === undefined) {
+        
+        alert("Error: Please fill out all required fields.");
+        
+    }
+        
+    
+    else {
+        
         nameIn = $scope.capitalFirst(nameIn);
         acct = $scope.capitalFirst(acct);
         
 //checks to see if remaining balance will allow this new envelope amount to be added
         if (Number($scope.totes) - Number($scope.sumOfCurrBudget) - Number(amt) < 0 || $scope.totes === undefined) {
-            alert('error: Not enough money left!');
+            alert('Error: Not enough money left!');
             
         }
         //otherwise...calls mainService 'add envelope' function...refreshes the $scope.envelopes array...gets the total budget amount of money in the envelopes so far (sumOfCurrBudget
@@ -80,8 +93,8 @@ $scope.getCheckingTotal = function() {
             $scope.envelopes = mainService.allEnvelopes;
             $scope.sumOfCurrBudget = mainService.sumCurrBudget($scope.envelopes);
         }
-        
     }
+ }
     
 //Removes an envelope.
     $scope.removeEnvelope = function(index) {

@@ -1,6 +1,6 @@
 <div class="envelopes-container" ng-controller="mainCtrl">
 
-    <span class='dateSpan'>Current date you are budgeting on: <span time-dir="format"></span></span>
+    <span class='dateSpan'>Current date you are budgeting on: <strong><span time-dir="format"></span></strong></span>
 
 
 <form class="form-inline">
@@ -31,16 +31,11 @@
                 <label for="inputAccount">Account/Cash:</label>
                 <input type="text" placeholder="(Checking/Savings/Cash)" class="form-control" id="inputAccount" ng-model="acct"/>
               </div>
-                <button class="Submit btn btn-primary" ng-click="addNewEnvelope(env, amt, acct); showMePlis=true">Submit</button>
+                <button class="Submit btn btn-primary" ng-click="addNewEnvelope(env, amt, acct, totes); showMePlis=true">Submit</button>
             </form>
         
-      <!--testing the table below!
-      <li class="list-of-stuff" ng-repeat="envelope in envelopes">
-            
-            {{envelope.name}} -- {{envelope.amount | currency}} -- {{envelope.account}}  
-            <button class="removeButton btn btn-primary"  ng-click="removeEnvelope($index)">Remove</button>
-            </li>
-            -->
+
+    
      <div class="everyTotal"> 
       <span class="totalsSpan">Total Cash: {{getCashTotal() | currency}} -- Total Savings: {{getSavingsTotal() | currency}} -- Total Checking: {{getCheckingTotal() | currency}}</span>
     </div>
@@ -74,7 +69,9 @@
 	</div>
 </div>
     
-<div class="alert alert-info firstAlertBlue" ng-show="showMePlis">Click on "Calculate Bills" on the left menu when you've finished entering your envelopes.</div>
+    
+    
+<div class="alert alert-info firstAlertBlue" ng-show="showMePlis">Click on <strong>"Calculate Bills"</strong> on the left menu when you've finished entering your envelopes.</div>
     
 
 </div>

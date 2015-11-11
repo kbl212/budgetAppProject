@@ -20,7 +20,7 @@ app.service('mainService', function() {
         this.name = name;
         this.amount = amount;
         this.account = account;
-        return this;  //might not need this line?
+        return this;
         
     };
 
@@ -39,7 +39,7 @@ this.addNewEnv = function(nameIn, amt, acct) {
         }        
     
         else {
-            alert("error: choose valid account type");
+            alert("Error: Choose valid account type.");
         }
     
     
@@ -50,18 +50,15 @@ this.addNewEnv = function(nameIn, amt, acct) {
 	if (this.envelopeNames.indexOf(nameIn) !== -1) {
             
             isNotDuplicate = false;
-            alert("error: envelope already exists!");
+            alert("Error: Envelope already exists!");
             
         }
-    
-    
-    
     
         var isNum = true;
     //checks for valid "amount" input
     if (amt - amt !== 0) { //checks for Number
         isNum = false;
-        alert("amount entered is not a valid number");
+        alert("Error: Amount entered is not a valid number");
     }
         
     
@@ -69,8 +66,6 @@ this.addNewEnv = function(nameIn, amt, acct) {
     if (isNotDuplicate === true && isAccount && isNum) {
 	    this.envelopeNames.push(nameIn);
         this.allEnvelopes.push(new Envelope(nameIn, amt, acct));
-        
-        
     }
 
 };
@@ -125,7 +120,7 @@ this.getSavingsBETA = function() {
             
             currTotal += Number(this.allEnvelopes[i].amount);
                 
-        }
+            }
             
             
             
@@ -149,18 +144,11 @@ this.getCheckingBETA = function() {
             
             currTotal += Number(this.allEnvelopes[i].amount);
                 
-        }
-            
-            
-            
+            }       
         }
     var checkingTotal = currTotal;
     return checkingTotal;
 }
-    
-    
-    
-    
     
 });
 
