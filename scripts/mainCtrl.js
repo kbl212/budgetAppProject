@@ -6,7 +6,7 @@ var app = angular.module('budgetApp');
 app.controller('mainCtrl', function($scope, mainService) {
     
     
-    $scope.format = 'M/d/yy h:mm:ss a';
+    $scope.format = 'M/d/yy';
     
 
 $scope.letsSee = function() {

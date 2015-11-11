@@ -10,10 +10,14 @@ app.directive('timeDir', ['$interval', function($interval) {
         
         var format,
             timeoutId;
+        var monthArray = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'];
         
         function updateTime() {
-            
-            element.text(new Date(), format);
+            var d = new Date();
+            var m = d.getMonth();
+            var day = d.getDate();
+            var year = d.getFullYear();
+            element.text((monthArray[m]) + " " + day + ', ' + year);
         }
         
         scope.$watch(attrs.myCurrentTime, function(value) {
